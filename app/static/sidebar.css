@@ -63,9 +63,8 @@ html * {
 
 /* Style the caret in dropdowns to be to the far right and not show by default */
 .fa-caret-down {
-  display: inline;
-  float: right;
   opacity: 0;
+  display: inline;
 }
 
 /****************************************
@@ -82,11 +81,16 @@ html * {
 }
 
 /* When the user hovers on a tab, slowly display the name of the tab and the dropdown arrow */
-.sidebar:hover .tab > .tab-name, .sidebar:hover .tab > .fa-caret-down {
+.sidebar:hover .tab > * {
   opacity: 1;
   transition: 0.2s;
   transition-delay: 0.3s;
   transition-property: opacity;
+}
+
+.sidebar:hover .tab > .fa-caret-down {
+  position: absolute;
+  right: 20px;
 }
 
 /* Style the active tab with a navy blue background and white text */
@@ -96,18 +100,28 @@ html * {
 }
 
 /* Highlight the tab the user hovers on with a gray background */
-.sidebar .tab:hover:not(.active) {
+.sidebar .tab:hover:not(.active), .sidebar .dropdown .dropdown-tab:hover {
   background-color: #666;
   color: white;
 }
 
+/* Display the dropdown tabs when the user hovers over a dropdown */
 .sidebar .dropdown:hover .dropdown-tab {
-  background-color: #666;
   display: block;
 }
 
+/* Highlight the entire dropdown section light-gray when the user hovers over it */
+.sidebar .dropdown:hover {
+  background-color: #999;
+  color: white;
+}
+
+/* Reveal the tab name when the user opens a dropdown */
 .sidebar:hover .tab:hover .dropdown-tab .tab-name {
   opacity: 1;
+  transition: 0.2s;
+  transition-delay: 0.3s;
+  transition-property: opacity;
 }
 
 /****************************************
