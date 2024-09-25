@@ -1,6 +1,7 @@
 <link rel="stylesheet" href="{{ url_for('static', filename='sidebar.css') }}">
 <!-- Load an icon library -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<!-- Create the sidebar -->
 <div class="sidebar">
   <a href="home" id="home" onclick="setActive('home');"><i class="fa fa-fw fa-home"></i> <tab>Home</tab></a>
   <a href="projects" id="projects" onclick="setActive('projects');"><i class="fa fa-fw fa-laptop"></i> <tab>Projects</tab></a>
@@ -9,8 +10,3 @@
   <a href="resume" id="resume" onclick="setActive('resume');"><i class="fa fa-fw fa-file"></i> <tab>Resume</tab></a>
   <a href="contact" id="contact" onclick="setActive('contact');"><i class="fa fa-fw fa-envelope"></i> <tab>Contact</tab></a>
 </div>
-<script>
-  $(function() {
-    $('nav a[href^="/' + location.pathname.split("/")[1] + '"]').addClass('active');
-  });
-</script>

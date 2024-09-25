@@ -1,28 +1,17 @@
-/* The side navigation menu */
-.sidebar:hover {
-  width: 200px;
-}
-
-.sidebar:hover ~ div.content {
-  margin-left: 200px;
-}
-
+/****************************************
+ ************ STATIC STYLING ************
+ ****************************************/
+/* Hide the name of the tabs in the sidebar by default */
 .sidebar tab {
   opacity: 0;
 }
 
+/* Fix the size of each section in the sidebar */
 .sidebar a {
-  overflow: hidden;
   height: 25px;
 }
 
-.sidebar:hover tab {
-  opacity: 1;
-  transition: 0.2s;
-  transition-delay: 0.3s;
-  transition-property: opacity;
-}
-
+/* Styling for the sidebar */
 .sidebar {
   margin: 0;
   padding: 0;
@@ -31,10 +20,9 @@
   position: fixed;
   height: 100%;
   transition: 0.5s;
-  overflow-x: hidden;
 }
 
-/* Sidebar links */
+/* Styling for each tab in the sidebar */
 .sidebar a {
   display: block;
   color: black;
@@ -43,21 +31,7 @@
   text-decoration: none;
 }
 
-/* Active/current link */
-.sidebar a.active {
-  background-color: #202A44;
-  color: white;
-}
-
-/* Links on mouse-over */
-.sidebar a:hover:not(.active) {
-  background-color: #666;
-  color: white;
-  transition: 0.01s;
-  transition-delay: 0.01s;
-}
-
-/* Page content. The value of the margin-left property should match the value of the sidebar's width property */
+/* Styling for the page content including pushing it to the right to make space for the sidebar */
 div.content {
   margin-left: 55px;
   padding: 1px 16px;
@@ -65,6 +39,49 @@ div.content {
   transition: 0.5s;
 }
 
+/* Set the global font to Times New Roman */
+html * {
+  font-family: "Times New Roman";
+}
+
+/****************************************
+ *********** DYNAMIC STYLING ************
+ ****************************************/
+/* Expand the sidebar when the user hovers on it */
+.sidebar:hover {
+  width: 200px;
+}
+
+/* Push the main content to the right so it isn't covered when the user hovers on the sidebar */
+.sidebar:hover ~ div.content {
+  margin-left: 200px;
+}
+
+/* When the user hovers on a tab, slowly display the name of the tab */
+.sidebar:hover tab {
+  opacity: 1;
+  transition: 0.2s;
+  transition-delay: 0.3s;
+  transition-property: opacity;
+}
+
+/* Style the active tab with a navy blue background and white text */
+.sidebar a.active {
+  background-color: #202A44;
+  color: white;
+}
+
+/* Highlight the tab the user hovers on with a gray background */
+.sidebar a:hover:not(.active) {
+  background-color: #666;
+  color: white;
+  transition: 0.01s;
+  transition-delay: 0.01s;
+}
+
+/****************************************
+ ******** SMALLER SCREEN STYLING ********
+ ****************************************/
 /* On screens that are less than 700px wide, make the sidebar into a topbar */
 @media screen and (max-width: 700px) {
   .sidebar {

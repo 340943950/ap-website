@@ -1,32 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-<script>
-  jQuery(function($) {
-    var path = window.location.href;
-    // because the 'href' property of the DOM element is the absolute path
-    $('div a').each(function() {
-      if (this.href === path) {
-        $(this).addClass('active');
-      }
-    });
-  });
-</script>
-<head>
-  <title>Personal Website - {% block title %}{% endblock title %}</title>
-</head>
-<body>
-{% include("_sidebar.html") %}
-<div class="content">
-  <h1>Personal Website</h1>
-  <section>
-    <header>
-      {% block header %}{% endblock header %}
-    </header>
-    <main>
-      {% block content %}<p>No messages.</p>{% endblock content %}
-    </main>
-  </section>
-</div>
-</body>
+  <head>
+    <!-- This controls the name of the tab -->
+    <title>
+      Personal Website - {% block title %}{% endblock title %}
+    </title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <!-- Create a function that updates the active tab in the navigation sidebar based on the URL -->
+    <script>
+      jQuery(function($) {
+        var path = window.location.href;
+        // because the 'href' property of the DOM element is the absolute path
+        $('div a').each(function() {
+          if (this.href === path) {
+            $(this).addClass('active');
+          }
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <!-- Display the sidebar -->
+    {% include("_sidebar.html") %}
+    <div class="content">
+      <h1>Personal Website</h1>
+      <section>
+        <header>
+          {% block header %}{% endblock header %}
+        </header>
+        <main>
+          {% block content %}<p>No messages.</p>{% endblock content %}
+        </main>
+      </section>
+    </div>
+  </body>
 </html>
