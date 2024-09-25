@@ -1,19 +1,44 @@
 /* The side navigation menu */
+.sidebar:hover {
+  width: 200px;
+}
+
+.sidebar:hover ~ div.content {
+  margin-left: 200px;
+}
+
+.sidebar tab {
+  opacity: 0;
+}
+
+.sidebar a {
+  overflow: hidden;
+  height: 25px;
+}
+
+.sidebar:hover tab {
+  opacity: 1;
+  transition: 0.2s;
+  transition-delay: 0.3s;
+  transition-property: opacity;
+}
+
 .sidebar {
   margin: 0;
   padding: 0;
-  width: 200px;
+  width: 57px;
   background-color: #f1f1f1;
   position: fixed;
   height: 100%;
-  overflow: auto;
   transition: 0.5s;
+  overflow-x: hidden;
 }
 
 /* Sidebar links */
 .sidebar a {
   display: block;
   color: black;
+  font-size: 20px;
   padding: 16px;
   text-decoration: none;
 }
@@ -26,15 +51,18 @@
 
 /* Links on mouse-over */
 .sidebar a:hover:not(.active) {
-  background-color: #555;
+  background-color: #666;
   color: white;
+  transition: 0.01s;
+  transition-delay: 0.01s;
 }
 
 /* Page content. The value of the margin-left property should match the value of the sidebar's width property */
 div.content {
-  margin-left: 200px;
+  margin-left: 55px;
   padding: 1px 16px;
   height: 1000px;
+  transition: 0.5s;
 }
 
 /* On screens that are less than 700px wide, make the sidebar into a topbar */

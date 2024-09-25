@@ -2,10 +2,15 @@
 <!-- Load an icon library -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <div class="sidebar">
-  <a class="active" href="home"><i class="fa fa-fw fa-home"></i> Home</a>
-  <a href="projects"><i class="fa fa-fw fa-laptop"></i> Projects</a>
-  <a href="experience"><i class="fa fa-fw fa-briefcase"></i> Experience</a>
-  <a href="skills"><i class="fa fa-fw fa-book"></i> Skills</a>
-  <a href="resume"><i class="fa fa-fw fa-file"></i> Resume</a>
-  <a href="contact"><i class="fa fa-fw fa-envelope"></i> Contact</a>
+  <a href="home" id="home" onclick="setActive('home');"><i class="fa fa-fw fa-home"></i> <tab>Home</tab></a>
+  <a href="projects" id="projects" onclick="setActive('projects');"><i class="fa fa-fw fa-laptop"></i> <tab>Projects</tab></a>
+  <a href="experience" id="experience" onclick="setActive('experience');"><i class="fa fa-fw fa-briefcase"></i> <tab>Experience</tab></a>
+  <a href="skills" id="skills" onclick="setActive('skills');"><i class="fa fa-fw fa-book"></i> <tab>Skills</tab></a>
+  <a href="resume" id="resume" onclick="setActive('resume');"><i class="fa fa-fw fa-file"></i> <tab>Resume</tab></a>
+  <a href="contact" id="contact" onclick="setActive('contact');"><i class="fa fa-fw fa-envelope"></i> <tab>Contact</tab></a>
 </div>
+<script>
+  $(function() {
+    $('nav a[href^="/' + location.pathname.split("/")[1] + '"]').addClass('active');
+  });
+</script>
