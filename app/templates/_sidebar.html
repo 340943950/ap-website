@@ -3,10 +3,15 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <!-- Create the sidebar -->
 <div class="sidebar">
-  <a href="home" id="home" onclick="setActive('home');"><i class="fa fa-fw fa-home"></i> <tab>Home</tab></a>
-  <a href="projects" id="projects" onclick="setActive('projects');"><i class="fa fa-fw fa-laptop"></i> <tab>Projects</tab></a>
-  <a href="experience" id="experience" onclick="setActive('experience');"><i class="fa fa-fw fa-briefcase"></i> <tab>Experience</tab></a>
-  <a href="skills" id="skills" onclick="setActive('skills');"><i class="fa fa-fw fa-book"></i> <tab>Skills</tab></a>
-  <a href="resume" id="resume" onclick="setActive('resume');"><i class="fa fa-fw fa-file"></i> <tab>Resume</tab></a>
-  <a href="contact" id="contact" onclick="setActive('contact');"><i class="fa fa-fw fa-envelope"></i> <tab>Contact</tab></a>
+  <a href="home" id="home" class="tab"><i class="fa fa-fw fa-home"></i> <div class="tab-name">Home</div></a>
+  <div class="dropdown">
+    <a href="projects" id="projects" class="tab"><i class="fa fa-fw fa-briefcase"></i> <div class="tab-name">Projects</div><i class="fa fa-caret-down"></i></a>
+    <a class="dropdown-tab"><div class="tab-name">Test 1</div></a>
+    <a class="dropdown-tab"><div class="tab-name">Test 2</div></a>
+    <a class="dropdown-tab"><div class="tab-name">Test 3</div></a>
+  </div>
+  <a href="experience" id="experience" class="tab"><i class="fa fa-fw fa-briefcase"></i> <div class="tab-name">Experience</div></a>
+  <a href="skills" id="skills" class="tab"><i class="fa fa-fw fa-book"></i> <div class="tab-name">Skills</div></a>
+  <a href="resume" id="resume" class="tab"><i class="fa fa-fw fa-file"></i> <div class="tab-name">Resume</div></a>
+  <a href="contact" id="contact" class="tab"><i class="fa fa-fw fa-envelope"></i> <div class="tab-name">Contact</div></a>
 </div>

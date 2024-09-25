@@ -1,13 +1,14 @@
 /****************************************
  ************ STATIC STYLING ************
  ****************************************/
-/* Hide the name of the tabs in the sidebar by default */
-.sidebar tab {
+/* Hide the names of the tabs in the sidebar by default */
+.sidebar .tab .tab-name {
   opacity: 0;
+  display: inline;
 }
 
 /* Fix the size of each section in the sidebar */
-.sidebar a {
+.sidebar .tab {
   height: 25px;
 }
 
@@ -20,11 +21,27 @@
   position: fixed;
   height: 100%;
   transition: 0.5s;
+  overflow-y: scroll;
+  overflow-x: hidden;
 }
 
-/* Styling for each tab in the sidebar */
-.sidebar a {
+/* Hide the sidebar's vertical scrollbar while still allowing the user to scroll */
+.sidebar::-webkit-scrollbar {
+  display: none;
+}
+
+/* Styling for each main tab in the sidebar */
+.sidebar .tab {
   display: block;
+  color: black;
+  font-size: 20px;
+  padding: 16px;
+  text-decoration: none;
+}
+
+/* Styling for each dropdown tab in the sidebar */
+.sidebar .dropdown-tab {
+  display: none;
   color: black;
   font-size: 20px;
   padding: 16px;
@@ -44,6 +61,13 @@ html * {
   font-family: "Times New Roman";
 }
 
+/* Style the caret in dropdowns to be to the far right and not show by default */
+.fa-caret-down {
+  display: inline;
+  float: right;
+  opacity: 0;
+}
+
 /****************************************
  *********** DYNAMIC STYLING ************
  ****************************************/
@@ -57,8 +81,8 @@ html * {
   margin-left: 200px;
 }
 
-/* When the user hovers on a tab, slowly display the name of the tab */
-.sidebar:hover tab {
+/* When the user hovers on a tab, slowly display the name of the tab and the dropdown arrow */
+.sidebar:hover .tab > .tab-name, .sidebar:hover .tab > .fa-caret-down {
   opacity: 1;
   transition: 0.2s;
   transition-delay: 0.3s;
@@ -66,17 +90,24 @@ html * {
 }
 
 /* Style the active tab with a navy blue background and white text */
-.sidebar a.active {
+.sidebar .tab.active {
   background-color: #202A44;
   color: white;
 }
 
 /* Highlight the tab the user hovers on with a gray background */
-.sidebar a:hover:not(.active) {
+.sidebar .tab:hover:not(.active) {
   background-color: #666;
   color: white;
-  transition: 0.01s;
-  transition-delay: 0.01s;
+}
+
+.sidebar .dropdown:hover .dropdown-tab {
+  background-color: #666;
+  display: block;
+}
+
+.sidebar:hover .tab:hover .dropdown-tab .tab-name {
+  opacity: 1;
 }
 
 /****************************************
