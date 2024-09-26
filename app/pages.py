@@ -14,6 +14,18 @@ def home():
 def projects():
     return render_template("pages/projects.html")
 
+@bp.route("/projects/athlete_progan")
+def athlete_progan():
+    return render_template("pages/athlete_progan.html")
+
+@bp.route("/projects/map_generator")
+def map_generator():
+    return render_template("pages/map_generator.html")
+
+@bp.route("/projects/football_simulator")
+def football_simulator():
+    return render_template("pages/football_simulator.html")
+
 @bp.route("/experience")
 def experience():
     return render_template("pages/experience.html")
