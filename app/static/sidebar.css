@@ -2,7 +2,7 @@
  ************ STATIC STYLING ************
  ****************************************/
 /* Hide the names of the tabs in the sidebar by default */
-.sidebar .tab .tab-name {
+.sidebar .tab .tab-name, .sidebar .dropdown-tab .tab-name {
   opacity: 0;
   display: inline;
 }
@@ -46,6 +46,7 @@
   font-size: 20px;
   padding: 16px;
   text-decoration: none;
+  margin-left: 30px;
 }
 
 /* Styling for the page content including pushing it to the right to make space for the sidebar */
@@ -62,7 +63,7 @@ html * {
 }
 
 /* Style the caret in dropdowns to be to the far right and not show by default */
-.fa-caret-down {
+.fa-caret-right {
   opacity: 0;
   display: inline;
 }
@@ -80,17 +81,28 @@ html * {
   margin-left: 200px;
 }
 
-/* When the user hovers on a tab, slowly display the name of the tab and the dropdown arrow */
-.sidebar:hover .tab > * {
+/* When the user hovers on the sidebar, slowly display the names of the tabs */
+.sidebar:hover .tab > .tab-name {
   opacity: 1;
   transition: 0.2s;
   transition-delay: 0.3s;
   transition-property: opacity;
 }
 
-.sidebar:hover .tab > .fa-caret-down {
+/* When the user hovers on the sidebar, slowly display the arrow for dropdown tabs */
+.sidebar:hover .tab > .fa-caret-right {
   position: absolute;
   right: 20px;
+  opacity: 1;
+  transition: 0.2s;
+  transition-delay: 0.3s;
+  transition-property: opacity;
+}
+
+.sidebar .dropdown:hover .fa-caret-right {
+  rotate: 90deg;
+  transition: 0.5s;
+  transition-property: rotate;
 }
 
 /* Style the active tab with a navy blue background and white text */
@@ -117,7 +129,7 @@ html * {
 }
 
 /* Reveal the tab name when the user opens a dropdown */
-.sidebar:hover .tab:hover .dropdown-tab .tab-name {
+.sidebar .dropdown:hover .dropdown-tab .tab-name {
   opacity: 1;
   transition: 0.2s;
   transition-delay: 0.3s;
