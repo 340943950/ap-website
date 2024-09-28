@@ -1,4 +1,10 @@
-from flask import Blueprint, render_template, redirect
+from flask import Blueprint, render_template, redirect, send_file, request
+from app.projects.athlete_progan.eval import gen_images
+from torchvision.utils import save_image
+import os
+import io
+from PIL import Image
+import numpy as np
 
 bp = Blueprint("pages", __name__)
 
@@ -41,3 +47,24 @@ def resume():
 @bp.route("/contact")
 def contact():
     return render_template("pages/contact.html")
+
+@bp.route('/generate', methods=['POST'])
+def generate():
+    team = request.form.get('team')
+    skin_tone = request.form.get('skin-tone')
+    build = request.form.get('build')
+
+    # Generate image using your model
+    images = gen_images(team, skin_tone, build)
+    img1 = images[0]
+    img1 = img1.detach().numpy()
+    img1 = np.transpose(img1, (1, 2, 0))
+    img1 = ((img1 * 0.5 + 0.5) * 255).astype(np.uint8)
+    pil_image = Image.fromarray(img1)
+
+    # Save the image to an in-memory buffer
+    img_io = io.BytesIO()
+    pil_image.save(img_io, 'PNG')
+    img_io.seek(0)
+
+    return send_file(img_io, mimetype='image/png')

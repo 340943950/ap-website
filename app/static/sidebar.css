@@ -44,7 +44,7 @@
 .sidebar .dropdown-tab {
   display: none;
   color: black;
-  font-size: 20px;
+  font-size: 16px;
   padding: 16px;
   text-decoration: none;
   padding-left: 30px;
@@ -60,7 +60,7 @@ div.content {
 
 /* Set the global font to Times New Roman */
 html * {
-  font-family: "Times New Roman";
+  font-family: 'Fira Sans', sans-serif;
 }
 
 /* Style the caret in dropdowns to be to the far right and not show by default */
