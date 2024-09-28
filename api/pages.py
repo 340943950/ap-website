@@ -1,5 +1,5 @@
 from flask import Blueprint, render_template, redirect, send_file, request
-from app.projects.athlete_progan.eval import gen_images
+from api.projects.athlete_progan.eval import gen_images
 from torchvision.utils import save_image
 import os
 import io

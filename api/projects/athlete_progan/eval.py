@@ -1,4 +1,4 @@
-from app.projects.athlete_progan.model import Generator, Critic
+from api.projects.athlete_progan.model import Generator, Critic
 import torch
 import torchvision.utils as vutils
 import numpy as np
